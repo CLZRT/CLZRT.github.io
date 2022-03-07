@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="岛屿的最大面积-递归题目描述 题目思路 每个位置都会访问到,从每个岛中选取面积最大的岛, 问题在于说如何计算岛的面积. 岛的面积计算需要对岛在数组中最靠前的节点进行上下左右四个方向的判断 后续节点也需要进行相同的操作, 但不牵扯到前继节点 如何不牵扯到前继节点? 前继节点化为0   如何判断结束? 节点四周都为0 节点四周超界限(数组)     如何避免由于不同开始节点而对同一岛进行多次面积求解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://clzrt.github.io/2022/03/07/2022-1.2/%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF-%E9%80%92%E5%BD%92/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="岛屿的最大面积-递归题目描述 题目思路 每个位置都会访问到,从每个岛中选取面积最大的岛, 问题在于说如何计算岛的面积. 岛的面积计算需要对岛在数组中最靠前的节点进行上下左右四个方向的判断 后续节点也需要进行相同的操作, 但不牵扯到前继节点 如何不牵扯到前继节点? 前继节点化为0   如何判断结束? 节点四周都为0 节点四周超界限(数组)     如何避免由于不同开始节点而对同一岛进行多次面积求解">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="e:/Typora-md/算法笔记/2022-1.2/uTools_1641131410688.png">
+<meta property="article:published_time" content="2022-03-07T14:59:37.154Z">
+<meta property="article:modified_time" content="2022-01-02T14:16:28.997Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/Typora-md/算法笔记/2022-1.2/uTools_1641131410688.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://CLZRT.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2022-1.2/岛屿的最大面积-递归" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/07/2022-1.2/%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF-%E9%80%92%E5%BD%92/" class="article-date">
+  <time class="dt-published" datetime="2022-03-07T14:59:37.154Z" itemprop="datePublished">2022-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="岛屿的最大面积-递归"><a href="#岛屿的最大面积-递归" class="headerlink" title="岛屿的最大面积-递归"></a>岛屿的最大面积-递归</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><img src="E:\Typora-md\算法笔记\2022-1.2\uTools_1641131410688.png" alt="uTools_1641131410688"></p>
+<h2 id="题目思路"><a href="#题目思路" class="headerlink" title="题目思路"></a>题目思路</h2><ul>
+<li>每个位置都会访问到,从每个岛中选取面积最大的岛, 问题在于说如何计算岛的面积.<ul>
+<li>岛的面积计算需要对岛在数组中最靠前的节点进行上下左右四个方向的判断</li>
+<li>后续节点也需要进行相同的操作, 但不牵扯到前继节点<ul>
+<li>如何不牵扯到前继节点?<ul>
+<li>前继节点化为0</li>
+</ul>
+</li>
+<li>如何判断结束?<ul>
+<li>节点四周都为0</li>
+<li>节点四周超界限(数组)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如何避免由于不同开始节点而对同一岛进行多次面积求解<ul>
+<li>取过的节点化为0.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="题目代码"><a href="#题目代码" class="headerlink" title="题目代码"></a>题目代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxAreaOfIsland</span><span class="params">(<span class="type">int</span>[][] grid)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i != grid.length; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j != grid[<span class="number">0</span>].length; ++j) &#123;</span><br><span class="line">                ans = Math.max(ans, dfs(grid, i, j));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span>[][] grid, <span class="type">int</span> cur_i, <span class="type">int</span> cur_j)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (cur_i &lt; <span class="number">0</span> || cur_j &lt; <span class="number">0</span> || cur_i == grid.length || cur_j == grid[<span class="number">0</span>].length || grid[cur_i][cur_j] != <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        grid[cur_i][cur_j] = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span>[] di = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, -<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="type">int</span>[] dj = &#123;<span class="number">1</span>, -<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>; index != <span class="number">4</span>; ++index) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">next_i</span> <span class="operator">=</span> cur_i + di[index], next_j = cur_j + dj[index];</span><br><span class="line">            ans += dfs(grid, next_i, next_j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码注解"><a href="#代码注解" class="headerlink" title="代码注解"></a>代码注解</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数: maxAreaOfIsland用于遍历数组,以求多个岛的面积,最终得到最大岛面积</span><br><span class="line">函数: dfs用于求单个岛的面积,并对遍历过的点进行标记(改变),是核心函数</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://clzrt.github.io/2022/03/07/2022-1.2/%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF-%E9%80%92%E5%BD%92/" data-id="cl0gu25nh000do4a430ma3ke9" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/07/2022-1.2/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/07/12.30/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/%E7%AE%97%E6%B3%95/">算法</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">二分查找</a></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Diary/" rel="tag">Diary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="tag">二分查找</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Diary/" style="font-size: 10px;">Diary</a> <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 10px;">二分查找</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/07/%E5%8F%8C%E6%8C%87%E9%92%88-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/07/%E5%8F%8C%E6%8C%87%E9%92%88/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/07/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E5%8F%8C%E6%8C%87%E9%92%88%E8%A7%A3%E6%B3%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/07/%E4%BA%8C%E5%88%86%E6%B3%95-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/07/2022-1.2/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
