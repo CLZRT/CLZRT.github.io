@@ -140,7 +140,7 @@
 <li>perfoemance_shcema: 性能字典</li>
 <li>mysql: 控制和管理信息</li>
 <li>sys: 系统数据库</li>
-<li>示例<img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646798063924-16467980743111.png" alt="uTools_1646798063924"></li>
+<li>示例<img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646798063924-16467980743111.png" alt="uTools_1646798063924"></li>
 </ul>
 </li>
 </ul>
@@ -184,7 +184,7 @@
 <ul>
 <li><pre><code class="mysql">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] 表名
 (字段名 字段类型[字段属性]...)[表选项]
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 例子</span><br><span class="line"></span><br><span class="line">  **数据库表创建设置编码格式**</span><br><span class="line">  </span><br><span class="line">  ![image-20220309092908686](数据库系统基本操作/image-20220309092908686-16467893502658.png)</span><br><span class="line">  </span><br><span class="line">- 说明</span><br><span class="line"></span><br><span class="line">  - 字段名:</span><br><span class="line">  - 字段类型: 字段中保存数据类型</span><br><span class="line">  - TEMPORARY: **可加**,表示创建表为临时表,之后就删了</span><br><span class="line">  - 字段属性: 可选,字段的某些特殊约束条件</span><br><span class="line">  - 表选项: 可选, 用于设置表的相关特性, 如 存储引擎(EGINE),字符设置(CHARSET)</span><br><span class="line"></span><br><span class="line">- 创造要点</span><br><span class="line"></span><br><span class="line">  - 数据表的名称, 一般选用数据库的前几个字母作为前缀</span><br><span class="line">  - 创建数据库表时, 要选择数据库</span><br><span class="line">  - 选择数据库时, 可使用&quot;USE数据库&quot; or &quot;数据库.表名&quot;</span><br><span class="line"></span><br><span class="line">### 2. 查看数据表</span><br><span class="line"></span><br><span class="line">- 返回数据表名</span><br><span class="line"></span><br><span class="line">- 语句</span><br><span class="line"></span><br><span class="line">  - 省略匹配模式</span><br><span class="line"></span><br><span class="line">    ~~~mysql</span><br><span class="line">    show tables 查看数据表</span><br><span class="line">    show table status 查看数据表的状态信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 例子</span><br><span class="line"></span><br><span class="line">  **数据库表创建设置编码格式**</span><br><span class="line">  </span><br><span class="line">  ![image-20220309092908686](image-20220309092908686-16467893502658.png)</span><br><span class="line">  </span><br><span class="line">- 说明</span><br><span class="line"></span><br><span class="line">  - 字段名:</span><br><span class="line">  - 字段类型: 字段中保存数据类型</span><br><span class="line">  - TEMPORARY: **可加**,表示创建表为临时表,之后就删了</span><br><span class="line">  - 字段属性: 可选,字段的某些特殊约束条件</span><br><span class="line">  - 表选项: 可选, 用于设置表的相关特性, 如 存储引擎(EGINE),字符设置(CHARSET)</span><br><span class="line"></span><br><span class="line">- 创造要点</span><br><span class="line"></span><br><span class="line">  - 数据表的名称, 一般选用数据库的前几个字母作为前缀</span><br><span class="line">  - 创建数据库表时, 要选择数据库</span><br><span class="line">  - 选择数据库时, 可使用&quot;USE数据库&quot; or &quot;数据库.表名&quot;</span><br><span class="line"></span><br><span class="line">### 2. 查看数据表</span><br><span class="line"></span><br><span class="line">- 返回数据表名</span><br><span class="line"></span><br><span class="line">- 语句</span><br><span class="line"></span><br><span class="line">  - 省略匹配模式</span><br><span class="line"></span><br><span class="line">    ~~~mysql</span><br><span class="line">    show tables 查看数据表</span><br><span class="line">    show table status 查看数据表的状态信息</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 <li><p>Like 匹配模式</p>
@@ -193,13 +193,13 @@
 <li><p>From匹配模式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">show tables [from 数据表名]</span><br><span class="line">show table status [from 数据表名]</span><br><span class="line">SHOW TABLE STATUS FROM mydb LIKE &#x27;%new%&#x27;\G # \g表示分号(;)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="这是啥"><a href="#这是啥" class="headerlink" title="这是啥?"></a>这是啥?</h2><p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309140025276-16468056269971.png" alt="image-20220309140025276"></p>
+<h2 id="这是啥"><a href="#这是啥" class="headerlink" title="这是啥?"></a>这是啥?</h2><p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309140025276-16468056269971.png" alt="image-20220309140025276"></p>
 </li>
 </ul>
 <h3 id="3-修改数据表"><a href="#3-修改数据表" class="headerlink" title="3. 修改数据表"></a>3. 修改数据表</h3><ul>
 <li><p>修改数据表名,数据表选项,<strong>选项≠数据表结构</strong>,结构指的是各个字段,选项指的是整个表的设置</p>
 </li>
-<li><p>示例:<img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788656801-16467886860031.png" alt="uTools_1646788656801"></p>
+<li><p>示例:<img src="/uTools_1646788656801-16467886860031.png" alt="uTools_1646788656801"></p>
 </li>
 <li><p>语句</p>
 <ul>
@@ -213,7 +213,7 @@
 <li><p>结果</p>
 </li>
 </ul>
-<h3 id="4-查看表结构"><a href="#4-查看表结构" class="headerlink" title="4. 查看表结构"></a>4. 查看表结构</h3><p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309142858284-16468073403642.png" alt="image-20220309142858284"></p>
+<h3 id="4-查看表结构"><a href="#4-查看表结构" class="headerlink" title="4. 查看表结构"></a>4. 查看表结构</h3><p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309142858284-16468073403642.png" alt="image-20220309142858284"></p>
 <ul>
 <li><p>查看表字段名(field),字段数据类型(type),允许为空(null)</p>
 </li>
@@ -235,7 +235,7 @@
 </ul>
 <h3 id="5-修改表结构"><a href="#5-修改表结构" class="headerlink" title="5. 修改表结构"></a>5. 修改表结构</h3><h4 id="5-1修改字段名"><a href="#5-1修改字段名" class="headerlink" title="5.1修改字段名"></a>5.1修改字段名</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 数据表名 </span><br><span class="line">CHANGE [COLUMN] 旧字段名 新字段名 字段类型 [字段属性]</span><br><span class="line"># 例子</span><br><span class="line">alter table yoursql </span><br><span class="line">change description des mysql varchar(255);</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788602481.png" alt="uTools_1646788602481"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788602481.png" alt="uTools_1646788602481"></p>
 <h4 id="5-2修改字段类型"><a href="#5-2修改字段类型" class="headerlink" title="5.2修改字段类型"></a>5.2修改字段类型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 数据表名</span><br><span class="line">MODIFY [COLUMN] 字段名 新类型 [字段属性];</span><br><span class="line"># 例子</span><br><span class="line">alter table mysql modify des char(255);</span><br><span class="line">alter table t1 modify b int not null</span><br><span class="line">#  在MySQL中仅修改数据表中的字段类型，通常使用MODIFY实现。</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-3修改字段位置"><a href="#5-3修改字段位置" class="headerlink" title="5.3修改字段位置"></a>5.3修改字段位置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 数据表名</span><br><span class="line">MODIFY [COLUMN] 字段名1 数据类型 [字段属性] [FIRST | AFTER 字段名2];</span><br><span class="line">/*</span><br><span class="line"> FIRST：表示将字段名1调整为数据表的第1个字段。</span><br><span class="line"> AFTER 字段名2：表示将字段名1插入到字段名2的后面</span><br><span class="line">*/</span><br><span class="line"># 例子</span><br><span class="line">alter table mysql modify des char(255) after name;</span><br></pre></td></tr></table></figure>
@@ -244,14 +244,14 @@
 
 <h4 id="5-5删除字段"><a href="#5-5删除字段" class="headerlink" title="5.5删除字段"></a>5.5删除字段</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 数据表名 DROP [COLUMN] 字段名;</span><br><span class="line"># 删除字段指的是将某个字段从数据表中删除</span><br><span class="line"># 例子</span><br><span class="line">alter table mysql drop num;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788806422-16467888117594.png" alt="uTools_1646788806422"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788806422-16467888117594.png" alt="uTools_1646788806422"></p>
 <h3 id="6-删除数据表"><a href="#6-删除数据表" class="headerlink" title="6. 删除数据表"></a>6. 删除数据表</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DROP [TEMPORARY] TABLE [IF EXISTS] 数据表1 [, 数据表2] …;</span><br><span class="line"># 删除数据表操作指的是删除指定数据库中已经存在的表。</span><br><span class="line"># 在删除数据表的同时，存储在数据表中的数据都将被删除。</span><br><span class="line"># 同时删除多个数据表时，多个数据表之间使用逗号分隔。</span><br><span class="line"># 可选项IF EXISTS用于在删除一个不存在的数据表时，防止产生错误。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788742932-16467887480112-16467887649013.png" alt="uTools_1646788742932"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646788742932-16467887480112-16467887649013.png" alt="uTools_1646788742932"></p>
 <p><strong>删除字段</strong></p>
 <h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="1-添加数据"><a href="#1-添加数据" class="headerlink" title="1.添加数据"></a>1.添加数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT [INTO] 数据表名 [字段名1...] &#123;VALUES | VALUE&#125;(值1[, 值2] …);</span><br><span class="line"># 没加字段名默认添加全部字段</span><br></pre></td></tr></table></figure>
 
@@ -259,10 +259,10 @@
 
 <h4 id="1-1所有字段"><a href="#1-1所有字段" class="headerlink" title="1.1所有字段"></a>1.1所有字段</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSERT [INTO] 数据表名 &#123;VALUES | VALUE&#125;(值1[, 值2] …);</span><br><span class="line">p 严格按照数据表结构（字段的位置）插入对应的值。</span><br><span class="line">p 值列表“值1 [,值2] …”中多个值之间使用逗号分隔。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646789016871-16467890252406.png" alt="uTools_1646789016871"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/uTools_1646789016871-16467890252406.png" alt="uTools_1646789016871"></p>
 <h4 id="1-2指定字段"><a href="#1-2指定字段" class="headerlink" title="1.2指定字段"></a>1.2指定字段</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 语法格式1</span><br><span class="line">INSERT [INTO] 数据表名 (字段名1 [, 字段名2] …)</span><br><span class="line">&#123;VALUES | VALUE&#125; (值1[, 值2] …);</span><br><span class="line"># 语法格式2</span><br><span class="line">INSERT [INTO] 数据表名 SET 字段名1 = 值1 [, 字段名2 = 值2]...;</span><br><span class="line"># 字段名必须与数据相对应。</span><br><span class="line"># INSERT INTO]… SET 一次仅能添加一条记录。</span><br><span class="line"># 例子</span><br><span class="line">insert mysql (name, num) value (&quot;wang&quot;,6);</span><br><span class="line">insert mysql set name=&quot;wang&quot;,num=6;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309092539690-16467891409547.png" alt="image-20220309092539690"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309092539690-16467891409547.png" alt="image-20220309092539690"></p>
 <h4 id="1-3多行数据"><a href="#1-3多行数据" class="headerlink" title="1.3多行数据"></a>1.3多行数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">INSERT [INTO] 数据表名 [(字段列表)]</span><br><span class="line">&#123;VALUES | VALUE&#125; (值列表) [, (值列表)] …;</span><br><span class="line"># 多个值列表之间使用逗号（,）分割。</span><br><span class="line"># 省略字段列表时，插入数据需严格按照数据表创建的顺序插入。</span><br><span class="line"># 添加字段列表时，值列表插入的数据仅需与字段列表中的字段</span><br><span class="line"># 相对应即可</span><br><span class="line"># 例子:</span><br><span class="line">insert mysql (name, num) value (&quot;wang&quot;,6),</span><br><span class="line">(&quot;li&quot;,4),</span><br><span class="line">(&quot;zhang&quot;,5);</span><br></pre></td></tr></table></figure>
 
 <p><strong><em>注意</em>: 在多数据插入时，若一条数据插入失败，则整个插入语句都会失败</strong></p>
@@ -272,13 +272,13 @@
 
 <h4 id="2-2-符合条件数据"><a href="#2-2-符合条件数据" class="headerlink" title="2.2 符合条件数据"></a>2.2 符合条件数据</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select &#123;字段名1,字段名2, 字段名3,...&#125; from 数据表名 where 字段名1=1;</span><br><span class="line">select id,name,sex from mysql where sex=&quot;male&quot;;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309093033836-16467894354759.png" alt="image-20220309093033836"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309093033836-16467894354759.png" alt="image-20220309093033836"></p>
 <h3 id="3-修改数据"><a href="#3-修改数据" class="headerlink" title="3.修改数据"></a>3.修改数据</h3><h4 id="3-1说明-总体语句结构跟select一样-没什么好说的"><a href="#3-1说明-总体语句结构跟select一样-没什么好说的" class="headerlink" title="3.1说明:总体语句结构跟select一样,没什么好说的"></a>3.1说明:总体语句结构跟select一样,没什么好说的</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 数据表名</span><br><span class="line">SET 字段名1 = 值1 [, 字段名2 = 值2, …] [WHERE 条件表达式];</span><br><span class="line">p 有WHERE条件，修改符合要求的对应字段。</span><br><span class="line">p 无WHERE条件，修改表中所有对应的字段。因此读者在修改数</span><br><span class="line">据时，请谨慎操作</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309093104678-164678946694510.png" alt="image-20220309093104678"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309093104678-164678946694510.png" alt="image-20220309093104678"></p>
 <h3 id="4-删除数据"><a href="#4-删除数据" class="headerlink" title="4.删除数据"></a>4.删除数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 数据表名 [WHERE 条件表达式];</span><br><span class="line"># 有WHERE条件，删除满足条件的记录</span><br><span class="line"># 无WHERE条件，系统就会自动删除该表中所有的记录，因此读</span><br><span class="line"># 者在操作时需要慎重</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309153114930-16468110785493.png" alt="image-20220309153114930"></p>
+<p><img src="/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/image-20220309153114930-16468110785493.png" alt="image-20220309153114930"></p>
 <h2 id="show操作"><a href="#show操作" class="headerlink" title="show操作"></a>show操作</h2><p>1.show 数据库</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create database mysql; #查看创建该库时,所用语句</span><br></pre></td></tr></table></figure>
 
@@ -313,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cl0jqnxo1000mfga45lc8b9mj" data-title="数据库基本操作" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2022/3/9/23/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" data-id="cl0jres0v000muka4fif2a9qq" data-title="数据库基本操作" class="article-share-link">分享</a>
       
       
       
@@ -366,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2022/3/7/22/hello-world/" data-id="cl0jqnxnf0000fga4hs300ie5" data-title="Hello World" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2022/3/7/22/hello-world/" data-id="cl0jres0b0000uka41tu7evsj" data-title="Hello World" class="article-share-link">分享</a>
       
       
       
@@ -458,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2022/3/7/11/AWS/IAM/" data-id="cl0jqnxnk0001fga4e2rq0li2" data-title="IAM" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2022/3/7/11/AWS/IAM/" data-id="cl0jres0u000kuka45s7l3zfa" data-title="IAM" class="article-share-link">分享</a>
       
       
       
@@ -523,7 +523,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2022/1/15/18/algo/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/" data-id="cl0jqnxnw000efga4byw4d68b" data-title="无重复字符的最长字串" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2022/1/15/18/algo/%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/" data-id="cl0jres0p000cuka412b5726x" data-title="无重复字符的最长字串" class="article-share-link">分享</a>
       
       
       
@@ -588,7 +588,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/30/18/algo/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9-%E4%B8%80%E6%AC%A1%E9%81%8D%E5%8E%86/" data-id="cl0jqnxnp0006fga46zjm02hg" data-title="删除链表的倒数第n个节点-一次遍历" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/30/18/algo/%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACn%E4%B8%AA%E8%8A%82%E7%82%B9-%E4%B8%80%E6%AC%A1%E9%81%8D%E5%8E%86/" data-id="cl0jres0j0004uka4e8l4gtz1" data-title="删除链表的倒数第n个节点-一次遍历" class="article-share-link">分享</a>
       
       
       
@@ -643,7 +643,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/29/18/algo/%E5%85%A8%E6%8E%92%E5%88%97/" data-id="cl0jqnxno0004fga4470mhxhw" data-title="全排列-深度优先遍历(回溯)" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/29/18/algo/%E5%85%A8%E6%8E%92%E5%88%97/" data-id="cl0jres0h0002uka45h3w7bea" data-title="全排列-深度优先遍历(回溯)" class="article-share-link">分享</a>
       
       
       
@@ -714,7 +714,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/28/18/algo/%E7%88%AC%E6%A5%BC%E6%A2%AF/" data-id="cl0jqnxnx000gfga4b1492mhj" data-title="爬楼梯" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/28/18/algo/%E7%88%AC%E6%A5%BC%E6%A2%AF/" data-id="cl0jres0r000fuka49ddd4eb3" data-title="爬楼梯" class="article-share-link">分享</a>
       
       
       
@@ -763,7 +763,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/27/18/algo/%E7%9F%A9%E9%98%B5-%E9%98%9F%E5%88%97/" data-id="cl0jqnxnz000kfga479n3at3o" data-title="矩阵-队列" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/27/18/algo/%E7%9F%A9%E9%98%B5-%E9%98%9F%E5%88%97/" data-id="cl0jres0s000guka42qxlae2m" data-title="矩阵-队列" class="article-share-link">分享</a>
       
       
       
@@ -811,7 +811,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/26/18/algo/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="cl0jqnxnq0007fga4h9a9d533" data-title="合并二叉树" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/26/18/algo/%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="cl0jres0l0006uka44zaq44c0" data-title="合并二叉树" class="article-share-link">分享</a>
       
       
       
@@ -882,7 +882,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://clzrt.github.io/2021/12/25/18/algo/%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/" data-id="cl0jqnxns000afga4hqjy1h4m" data-title="屿的最大面积" class="article-share-link">分享</a>
+      <a data-url="http://clzrt.github.io/2021/12/25/18/algo/%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/" data-id="cl0jres0o000buka4e1cva6cu" data-title="屿的最大面积" class="article-share-link">分享</a>
       
       
       
