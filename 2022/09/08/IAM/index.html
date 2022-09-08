@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>IAM | CLZRT</title><meta name="keywords" content="aws"><meta name="author" content="Zrt"><meta name="copyright" content="Zrt"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="IAM概念AWS Identity and Access Management (IAM) 是一项 Web 服务，可让 Amazon Web Services (AWS) 客户在 AWS 中管理用户和用户权限。借助 IAM，您可以集中管理用户、访问密钥等安全凭证，以及用于控制用户可以访问哪些 AWS 资源的权限 功能  管理对AWS资源访问 控制谁可以终止Amazon EC2实例   定义精细的访">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IAM">
+<meta property="og:url" content="http://example.com/2022/09/08/IAM/index.html">
+<meta property="og:site_name" content="CLZRT">
+<meta property="og:description" content="IAM概念AWS Identity and Access Management (IAM) 是一项 Web 服务，可让 Amazon Web Services (AWS) 客户在 AWS 中管理用户和用户权限。借助 IAM，您可以集中管理用户、访问密钥等安全凭证，以及用于控制用户可以访问哪些 AWS 资源的权限 功能  管理对AWS资源访问 控制谁可以终止Amazon EC2实例   定义精细的访">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-09-08T02:49:39.000Z">
+<meta property="article:modified_time" content="2022-09-08T02:50:38.052Z">
+<meta property="article:author" content="Zrt">
+<meta property="article:tag" content="aws">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/write.png"><link rel="canonical" href="http://example.com/2022/09/08/IAM/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'IAM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-08 10:50:38'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/emilia.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CLZRT</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">IAM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-09-08T02:49:39.000Z" title="Created 2022-09-08 10:49:39">2022-09-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-09-08T02:50:38.052Z" title="Updated 2022-09-08 10:50:38">2022-09-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="IAM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="IAM"><a href="#IAM" class="headerlink" title="IAM"></a>IAM</h1><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><strong>AWS Identity and Access Management (IAM)</strong> 是一项 Web 服务，可让 Amazon Web Services (AWS) 客户在 AWS 中管理用户和用户权限。借助 IAM，您可以集中管理<strong>用户</strong>、访问密钥等<strong>安全凭证</strong>，以及用于控制用户可以访问哪些 AWS 资源的<strong>权限</strong></p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p><a target="_blank" rel="noopener" href="https://clzrt.github.io/2022/03/07/AWS/IAM/1.png"><img src="/imgs/IAM/1.png" alt="image-20220307205242717"></a><a target="_blank" rel="noopener" href="https://clzrt.github.io/2022/03/07/AWS/IAM/2.png"><img src="/imgs/IAM/2.png" alt="image-20220307205849729"></a><a target="_blank" rel="noopener" href="https://clzrt.github.io/2022/03/07/AWS/IAM/3.png"><img src="/imgs/IAM/3.png" alt="image-20220307205242717"></a></p>
+<ul>
+<li>管理对AWS资源访问<ul>
+<li>控制谁可以终止Amazon EC2实例</li>
+</ul>
+</li>
+<li>定义精细的访问权限(假如使用密码,密钥本地登录.权力大小难管理)<ul>
+<li>谁可以访问资源</li>
+<li>可以访问哪些资源, 以及用户可以对资源执行哪些操作</li>
+<li>如何访问资源</li>
+</ul>
+</li>
+</ul>
+<h3 id="IAM基本组件"><a href="#IAM基本组件" class="headerlink" title="IAM基本组件"></a>IAM基本组件</h3><h4 id="组件介绍"><a href="#组件介绍" class="headerlink" title="组件介绍"></a>组件介绍</h4><ul>
+<li><h4 id="IAM用户"><a href="#IAM用户" class="headerlink" title="IAM用户"></a>IAM用户</h4></li>
+<li><h4 id="IAM组"><a href="#IAM组" class="headerlink" title="IAM组"></a>IAM组</h4></li>
+<li><h4 id="IAM策略"><a href="#IAM策略" class="headerlink" title="IAM策略"></a>IAM策略</h4></li>
+<li><h4 id="IAM角色"><a href="#IAM角色" class="headerlink" title="IAM角色"></a>IAM角色</h4></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://clzrt.github.io/2022/03/07/AWS/IAM/4.png"><img src="/imgs/IAM/4.png" alt="image-20220307210844492"></a></p>
+<h4 id="IAM组件位置"><a href="#IAM组件位置" class="headerlink" title="IAM组件位置"></a>IAM组件位置</h4><p><a target="_blank" rel="noopener" href="https://clzrt.github.io/2022/03/07/AWS/IAM/5.png"><img src="/imgs/IAM/5.png" alt="uTools_1646659001352"></a></p>
+<h3 id="IAM概念理解"><a href="#IAM概念理解" class="headerlink" title="IAM概念理解"></a>IAM概念理解</h3><h4 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h4><ul>
+<li>可以使用AWS账户进行身份验证的人员, 或者应用程序</li>
+</ul>
+<p>例子: 我在班级舞台剧中表演一棵树,其中我是用户,班级舞台剧是活动,树是角色.我只有在班级舞台剧上才能是树</p>
+<p>或者</p>
+<p>班助与普通大学生,特定事件.</p>
+<h4 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h4><ul>
+<li>雨课堂里可以看课堂界面的人,只要被加到学生组就可以了</li>
+</ul>
+<h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><ul>
+<li>为发出AWS服务请求授予一组权限的有用机制(套皮),</li>
+<li>跟用户组内的用户有什么区别?<ul>
+<li>某件事需要多个用户组权限,创造角色,给用户套上.事情完成后取消这个角色.</li>
+</ul>
+</li>
+</ul>
+<h4 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h4><ul>
+<li>谁(who)在什么时候(when)可以在哪里(where)怎么(how)做什么事情(what)<ul>
+<li>who:角色(套皮)</li>
+<li>when:权限是否过期</li>
+<li>where:登陆设备</li>
+<li>how:通过哪个端口(哪种AWS服务实现)</li>
+<li>what:更改数据</li>
+</ul>
+</li>
+</ul>
+<h3 id="IAM保护根账户"><a href="#IAM保护根账户" class="headerlink" title="IAM保护根账户"></a>IAM保护根账户</h3><p>通过AWS管理控制台访问,根本上解决了用户密码,密钥被截取,最后root意外登录,云资源报废的结果</p>
+<h3 id="IAM控制资源访问"><a href="#IAM控制资源访问" class="headerlink" title="IAM控制资源访问"></a>IAM控制资源访问</h3><p>IAM的作用就跟电子门(NFC)一样.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Zrt</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/08/IAM/">http://example.com/2022/09/08/IAM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/aws/">aws</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/09/08/2%E7%9A%84%E5%B9%82/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">2的幂</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/emilia.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zrt</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CLZRT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Make everything working</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IAM"><span class="toc-number">1.</span> <span class="toc-text">IAM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.0.2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IAM%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6"><span class="toc-number">1.0.3.</span> <span class="toc-text">IAM基本组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">组件介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IAM%E7%94%A8%E6%88%B7"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">IAM用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IAM%E7%BB%84"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">IAM组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IAM%E7%AD%96%E7%95%A5"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">IAM策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IAM%E8%A7%92%E8%89%B2"><span class="toc-number">1.0.3.5.</span> <span class="toc-text">IAM角色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IAM%E7%BB%84%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.0.3.6.</span> <span class="toc-text">IAM组件位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IAM%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3"><span class="toc-number">1.0.4.</span> <span class="toc-text">IAM概念理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%92%E8%89%B2"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">角色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%83%E9%99%90"><span class="toc-number">1.0.4.4.</span> <span class="toc-text">权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IAM%E4%BF%9D%E6%8A%A4%E6%A0%B9%E8%B4%A6%E6%88%B7"><span class="toc-number">1.0.5.</span> <span class="toc-text">IAM保护根账户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IAM%E6%8E%A7%E5%88%B6%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE"><span class="toc-number">1.0.6.</span> <span class="toc-text">IAM控制资源访问</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/08/IAM/" title="IAM"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="IAM"/></a><div class="content"><a class="title" href="/2022/09/08/IAM/" title="IAM">IAM</a><time datetime="2022-09-08T02:49:39.000Z" title="Created 2022-09-08 10:49:39">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/08/2%E7%9A%84%E5%B9%82/" title="2的幂"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2的幂"/></a><div class="content"><a class="title" href="/2022/09/08/2%E7%9A%84%E5%B9%82/" title="2的幂">2的幂</a><time datetime="2022-09-08T01:34:29.000Z" title="Created 2022-09-08 09:34:29">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/08/%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/" title="屿的最大面积"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="屿的最大面积"/></a><div class="content"><a class="title" href="/2022/09/08/%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF/" title="屿的最大面积">屿的最大面积</a><time datetime="2022-09-08T01:33:49.000Z" title="Created 2022-09-08 09:33:49">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/08/Hello%20World/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/09/08/Hello%20World/" title="Hello World">Hello World</a><time datetime="2022-09-08T01:33:35.000Z" title="Created 2022-09-08 09:33:35">2022-09-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/08/%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="爬楼梯"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="爬楼梯"/></a><div class="content"><a class="title" href="/2022/09/08/%E7%88%AC%E6%A5%BC%E6%A2%AF/" title="爬楼梯">爬楼梯</a><time datetime="2022-09-08T01:33:15.000Z" title="Created 2022-09-08 09:33:15">2022-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Zrt</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
