@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ansible Basic | CLZRT</title><meta name="keywords" content="Linux,ansible"><meta name="author" content="Zrt"><meta name="copyright" content="Zrt"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ansible介绍ansible自动化工具通过代码形式 执行写定逻辑，相比于开发语言，其更加注重业务逻辑，而非数据结构 配置多台机器（集群）通过 hosts文件 配置 各个集群，并使用playbook 执行yaml配置文件，完成集群的再配置 ansible的安装配置epel源123456yum install -y https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;epel&#x2F;epel-rele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ansible Basic">
+<meta property="og:url" content="http://example.com/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="CLZRT">
+<meta property="og:description" content="ansible介绍ansible自动化工具通过代码形式 执行写定逻辑，相比于开发语言，其更加注重业务逻辑，而非数据结构 配置多台机器（集群）通过 hosts文件 配置 各个集群，并使用playbook 执行yaml配置文件，完成集群的再配置 ansible的安装配置epel源123456yum install -y https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;epel&#x2F;epel-rele">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-09-23T01:33:35.000Z">
+<meta property="article:modified_time" content="2023-09-26T03:32:39.788Z">
+<meta property="article:author" content="Zrt">
+<meta property="article:tag" content="Linux,ansible">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/write.png"><link rel="canonical" href="http://example.com/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ansible Basic',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-26 11:32:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/emilia.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CLZRT</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ansible Basic</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-09-23T01:33:35.000Z" title="Created 2023-09-23 09:33:35">2023-09-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-26T03:32:39.788Z" title="Updated 2023-09-26 11:32:39">2023-09-26</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ansible Basic"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ansible"><a href="#ansible" class="headerlink" title="ansible"></a>ansible</h1><h2 id="介绍ansible"><a href="#介绍ansible" class="headerlink" title="介绍ansible"></a>介绍ansible</h2><h3 id="自动化工具"><a href="#自动化工具" class="headerlink" title="自动化工具"></a>自动化工具</h3><p>通过代码形式 执行写定逻辑，相比于开发语言，其更加注重业务逻辑，而非数据结构</p>
+<h3 id="配置多台机器（集群）"><a href="#配置多台机器（集群）" class="headerlink" title="配置多台机器（集群）"></a>配置多台机器（集群）</h3><p>通过 hosts文件 配置 各个集群，并使用playbook 执行yaml配置文件，完成集群的再配置</p>
+<h2 id="ansible的安装"><a href="#ansible的安装" class="headerlink" title="ansible的安装"></a>ansible的安装</h2><h3 id="配置epel源"><a href="#配置epel源" class="headerlink" title="配置epel源"></a>配置epel源</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum install -y https://mirrors.aliyun.com/epel/epel-release-latest-8.noarch.rpm</span><br><span class="line"></span><br><span class="line">sed -i &#x27;s|^#baseurl=https://download.fedoraproject.org/pub|baseurl=https://mirrors.aliyun.com|&#x27; /etc/yum.repos.d/epel*</span><br><span class="line"></span><br><span class="line">sed -i</span><br><span class="line">&#x27;s|^metalink|#metalink|&#x27; /etc/yum.repos.d/epel*</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-ansible"><a href="#安装-ansible" class="headerlink" title="安装 ansible"></a>安装 ansible</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install ansible -y</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ansible-配置文件"><a href="#ansible-配置文件" class="headerlink" title="ansible 配置文件"></a>ansible 配置文件</h2><h3 id="ansible-cfg"><a href="#ansible-cfg" class="headerlink" title="ansible.cfg"></a>ansible.cfg</h3><p>默认位置为  /etc/ansible.cfg 一般优先使用 当前工作目录下的</p>
+<p>ansible.cfg</p>
+<p>ansible的基本配置，每次启动ansible时加载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[defaults]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定清单文件位置</span></span><br><span class="line">inventory = ./hosts</span><br><span class="line">remote_user = mio</span><br><span class="line">private_key_file = ./.ssh/id_rsa</span><br><span class="line">[privilege_escalation]</span><br><span class="line">become=True</span><br><span class="line">become_method=sudo</span><br><span class="line">become_user=root</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="hosts（清单文件）"><a href="#hosts（清单文件）" class="headerlink" title="hosts（清单文件）"></a>hosts（清单文件）</h3><p>配置各个集群</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[db1]</span><br><span class="line">server[2:3]</span><br><span class="line">[db2]</span><br><span class="line">server[6:7]</span><br><span class="line"></span><br><span class="line">[db3:children]</span><br><span class="line">db1</span><br><span class="line">db2</span><br><span class="line"></span><br><span class="line">[xx]</span><br><span class="line">server2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ansible-基本命令"><a href="#ansible-基本命令" class="headerlink" title="ansible 基本命令"></a>ansible 基本命令</h2><h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible 机器名 -m 模块x -a &quot;模块参数&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看集群里的主机</span></span><br><span class="line">ansible db1 --list-hosts</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看指定模块的参数及其使用方法</span></span><br><span class="line">ansible-doc 模块y</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ansible-配置集群"><a href="#ansible-配置集群" class="headerlink" title="ansible 配置集群"></a>ansible 配置集群</h2><p>为了防止 有小聪明 不会配置ssh连接，特在此说明</p>
+<h3 id="密钥链接"><a href="#密钥链接" class="headerlink" title="密钥链接"></a>密钥链接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">主机master生成私钥和公钥</span></span><br><span class="line">ssh-keygen -t</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将公钥上传至从机slave中你要用于ansible的账户目录下（前提知道该用户密码）</span></span><br><span class="line">ssh-copy-id mio@server2</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="密码连接"><a href="#密码连接" class="headerlink" title="密码连接"></a>密码连接</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[all:vars]</span><br><span class="line"></span><br><span class="line">ansible_ssh_port=&quot;22&quot;</span><br><span class="line">ansible_ssh_user=&quot;admin&quot;</span><br><span class="line">ansible_ssh_pass=&quot;123456&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ansible_user=<span class="string">&quot;weblogic&quot;</span></span></span><br><span class="line">ansible_become=&quot;yes&quot;</span><br><span class="line">ansible_become_method=&quot;sudo&quot;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ansible_become_user=<span class="string">&quot;weblogic&quot;</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">ansible_become_password=<span class="string">&quot;&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="提升权限-配置无密码（建议在使用playbook时，为其配置密码变量（再加密）"><a href="#提升权限-配置无密码（建议在使用playbook时，为其配置密码变量（再加密）" class="headerlink" title="提升权限|配置无密码（建议在使用playbook时，为其配置密码变量（再加密）"></a>提升权限|配置无密码（建议在使用playbook时，为其配置密码变量（再加密）</h3><p>前提条件：被提升的角色 在其所在主机 应可使用 sudo 命令</p>
+<p>即  visudo命令后添加 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># Allow special user to run any commands anywhere</span></span></span><br><span class="line">mio     ALL=(root)      NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+
+<p>内容大意为： mio 可以使用root的所有命令，且使用时无需密码验证(应该谨慎使用)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Zrt</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/">http://example.com/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%85%8D%E7%BD%AE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux-ansible/">Linux,ansible</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/23/Linux/%E7%94%A8%E6%88%B7%E9%85%8D%E7%BD%AE/ACL/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ACL</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%20%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9D%97/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Ansible Module</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/ansible%20%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9D%97/" title="Ansible Module"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-23</div><div class="title">Ansible Module</div></div></a></div><div><a href="/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/playbook/" title="Playbook"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-23</div><div class="title">Playbook</div></div></a></div><div><a href="/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/" title="Program Struct"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-23</div><div class="title">Program Struct</div></div></a></div><div><a href="/2023/09/23/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/%E5%8F%98%E9%87%8F/" title="Vars"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-23</div><div class="title">Vars</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/emilia.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zrt</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">39</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CLZRT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Make everything working</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ansible"><span class="toc-number">1.</span> <span class="toc-text">ansible</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8Dansible"><span class="toc-number">1.1.</span> <span class="toc-text">介绍ansible</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.1.</span> <span class="toc-text">自动化工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%8F%B0%E6%9C%BA%E5%99%A8%EF%BC%88%E9%9B%86%E7%BE%A4%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">配置多台机器（集群）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ansible%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">ansible的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEepel%E6%BA%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">配置epel源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ansible"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装 ansible</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ansible-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">ansible 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ansible-cfg"><span class="toc-number">1.3.1.</span> <span class="toc-text">ansible.cfg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hosts%EF%BC%88%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">hosts（清单文件）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ansible-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.</span> <span class="toc-text">ansible 基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.4.1.</span> <span class="toc-text">命令格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">常用命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ansible-%E9%85%8D%E7%BD%AE%E9%9B%86%E7%BE%A4"><span class="toc-number">1.5.</span> <span class="toc-text">ansible 配置集群</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E9%92%A5%E9%93%BE%E6%8E%A5"><span class="toc-number">1.5.1.</span> <span class="toc-text">密钥链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.5.2.</span> <span class="toc-text">密码连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90-%E9%85%8D%E7%BD%AE%E6%97%A0%E5%AF%86%E7%A0%81%EF%BC%88%E5%BB%BA%E8%AE%AE%E5%9C%A8%E4%BD%BF%E7%94%A8playbook%E6%97%B6%EF%BC%8C%E4%B8%BA%E5%85%B6%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%86%8D%E5%8A%A0%E5%AF%86%EF%BC%89"><span class="toc-number">1.5.3.</span> <span class="toc-text">提升权限|配置无密码（建议在使用playbook时，为其配置密码变量（再加密）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/jinja2/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2023/09/26/Linux/%E8%87%AA%E5%8A%A8%E5%8C%96%E7%AE%A1%E7%90%86-ansible/jinja2/" title="No title">No title</a><time datetime="2023-09-26T03:20:16.385Z" title="Created 2023-09-26 11:20:16">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/Linux/Untitled/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2023/09/26/Linux/Untitled/" title="No title">No title</a><time datetime="2023-09-26T03:20:16.280Z" title="Created 2023-09-26 11:20:16">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/26/Linux/1.%20Linux%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="Linux Filesystem"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux Filesystem"/></a><div class="content"><a class="title" href="/2023/09/26/Linux/1.%20Linux%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="Linux Filesystem">Linux Filesystem</a><time datetime="2023-09-26T01:33:35.000Z" title="Created 2023-09-26 09:33:35">2023-09-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/23/Linux/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/%E6%97%A5%E5%BF%97/" title="Log"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Log"/></a><div class="content"><a class="title" href="/2023/09/23/Linux/%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/%E6%97%A5%E5%BF%97/" title="Log">Log</a><time datetime="2023-09-23T01:33:35.000Z" title="Created 2023-09-23 09:33:35">2023-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/23/Linux/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="Linux 文件权限"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 文件权限"/></a><div class="content"><a class="title" href="/2023/09/23/Linux/%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/" title="Linux 文件权限">Linux 文件权限</a><time datetime="2023-09-23T01:33:35.000Z" title="Created 2023-09-23 09:33:35">2023-09-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Zrt</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
